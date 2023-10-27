@@ -19,7 +19,10 @@ class Game{
         Game(const Game& copyGame);
 
         //Destructor
-        ~Game();
+        ~Game(); 
+
+        //Move Constructor
+        Game(Game&& moveGame);
 
         void ChangePrice(float newPrice);
         void AddPlatform(std::string newPlatform);

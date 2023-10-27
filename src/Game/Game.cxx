@@ -30,6 +30,20 @@ Game::Game(const Game& copyGame){
     std::cout << "Game has been copied!" << std::endl;
 }
 
+Game::Game(Game&& moveGame){
+    this->name = new char[strlen(moveGame.name) + 1];
+    strcpy(this->name, moveGame.name);
+    this->developers = std::move(moveGame.developers);
+    this->genres = std::move(moveGame.genres);
+    this->platforms = std::move(moveGame.platforms);
+    this->year = std::move(moveGame.year);
+    this->price = std::move(moveGame.price);
+
+    moveGame.name = nullptr;
+    moveGame.year = 0;
+    moveGame.price = 0;
+    std::cout << "Game has been moved!" << std::endl;
+}
 
 void Game::ChangePrice(float newPrice){
     this->price = newPrice;

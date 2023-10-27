@@ -20,6 +20,10 @@ int main() {
     game4.GameInfo();
     game2.GameInfo();
 
+    Game game5 = Game(std::move(game3));
+    game5.SetGenres("Action");
+    game3.GameInfo();
+    game5.GameInfo();
     
     return 0;
 }
