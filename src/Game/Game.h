@@ -15,6 +15,12 @@ class Game{
         //Constructor
         Game(const char* name, const std::string developers, const std::string genres, const std::string platforms, int year, float price);   
 
+        //Copy Constructor
+        Game(const Game& copyGame);
+
+        //Destructor
+        ~Game();
+
         void ChangePrice(float newPrice);
         void AddPlatform(std::string newPlatform);
         void DeletePlatform(std::string platform);

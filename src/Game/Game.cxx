@@ -14,6 +14,23 @@ Game::Game(const char* name, const std::string developers, const std::string gen
     std::cout << "Game has been created!" << std::endl;
 }
 
+Game::~Game(){
+    delete[] this->name;
+    std::cout << "Game name has been deleted!" << std::endl;
+}
+
+Game::Game(const Game& copyGame){
+    this->name = new char[strlen(copyGame.name) + 1];
+    strcpy(this->name, copyGame.name);
+    this->developers = copyGame.developers;
+    this->genres = copyGame.genres;
+    this->platforms = copyGame.platforms;
+    this->year = copyGame.year;
+    this->price = copyGame.price;
+    std::cout << "Game has been copied!" << std::endl;
+}
+
+
 void Game::ChangePrice(float newPrice){
     this->price = newPrice;
 }

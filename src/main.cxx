@@ -15,5 +15,11 @@ int main() {
     game1.AddPlatform("Windows");
     game1.GameInfo();
     
+    Game game4 = game2;
+    game4.DeletePlatform("PlayStation 4");
+    game4.GameInfo();
+    game2.GameInfo();
+
+    
     return 0;
 }
