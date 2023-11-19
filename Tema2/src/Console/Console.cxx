@@ -42,6 +42,35 @@ Console::Console(Console&& moveConsole){
     std::cout << "Console platform has been moved!" << std::endl;
 }
 
+Console& Console::operator= (const Console& copyConsole){
+    delete[] gameName;
+    this->gameName = new char[strlen(copyConsole.gameName) + 1];
+    strcpy(this->gameName, copyConsole.gameName);
+    this->gamePrice = copyConsole.gamePrice;
+    this->gameSize = copyConsole.gameSize;
+    this->hasLag = copyConsole.hasLag;
+
+    std::cout << "Console platform has been copied (copy assignment operator)!" << std::endl;
+
+    return *this;
+}
+
+Console& Console::operator= (Console&& moveConsole){
+    this->gameName =  moveConsole.gameName;
+    this->gamePrice = moveConsole.gamePrice;
+    this->gameSize = moveConsole.gameSize;
+    this->hasLag = moveConsole.hasLag;
+
+    moveConsole.gameName = nullptr;
+    moveConsole.gamePrice = 0.0;
+    moveConsole.gameSize = 0.0;
+    moveConsole.hasLag = false;
+
+    std::cout << "Console platform has been moved (move assignment operator)!" << std::endl;
+
+    return *this;
+}
+
 void Console::platformType() const {
     std::cout<< "Platform type: Console" << std::endl;
 }

@@ -17,5 +17,7 @@ namespace Games{
             virtual void displayInfo() const override;
             virtual void changePrice(float newPrice) override;
 
+            PC& operator = (const PC& other);
+            PC& operator = (PC&& other);
     };
 };

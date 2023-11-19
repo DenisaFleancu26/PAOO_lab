@@ -19,5 +19,7 @@ namespace Games{
             virtual void changePrice(float newPrice) override;
             virtual void gameHasLag() const;
 
+            Console& operator = (const Console& other);
+            Console& operator = (Console&& other);
     };
 };

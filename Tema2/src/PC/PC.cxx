@@ -38,6 +38,32 @@ PC::PC(PC&& movePC){
     std::cout << "PC platform has been moved!" << std::endl;
 }
 
+PC& PC::operator= (const PC& copyPC){
+    delete[] gameName;
+    this->gameName = new char[strlen(copyPC.gameName) + 1];
+    strcpy(this->gameName, copyPC.gameName);
+    this->gamePrice = copyPC.gamePrice;
+    this->gameSize = copyPC.gameSize;
+
+    std::cout << "PC platform has been copied (copy assignment operator)!" << std::endl;
+
+    return *this;
+}
+
+PC& PC::operator= (PC&& movePC){
+    this->gameName =  movePC.gameName;
+    this->gamePrice = movePC.gamePrice;
+    this->gameSize = movePC.gameSize;
+
+    movePC.gameName = nullptr;
+    movePC.gamePrice = 0.0;
+    movePC.gameSize = 0.0;
+
+    std::cout << "PC platform has been moved (move assignment operator)!" << std::endl;
+
+    return *this;
+}
+
 void PC::platformType() const {
     std::cout<< "Platform type: PC" << std::endl;
 }
