@@ -55,3 +55,11 @@ void Console::displayInfo() const {
 void Console::changePrice(float newPrice){
     this->gamePrice = newPrice;
 }
+
+void Console::gameHasLag() const {
+    if(this->hasLag == true){
+        std::cout << "Game has lags!" << std::endl;
+    } else {
+        std::cout << "Game has no lags!" << std::endl;
+    }
+}

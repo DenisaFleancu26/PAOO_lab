@@ -17,6 +17,7 @@ namespace Games{
             virtual void platformType() const override;
             virtual void displayInfo() const override;
             virtual void changePrice(float newPrice) override;
+            virtual void gameHasLag() const;
 
     };
 };
