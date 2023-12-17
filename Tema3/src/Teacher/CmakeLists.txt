@@ -1,0 +1,5 @@
+add_library(Teacher STATIC Teacher.cxx)
+
+target_include_directories(Teacher PUBLIC "${PROJECT_SOURCE_DIR}")
+target_include_directories(Teacher PUBLIC "${PROJECT_SOURCE_DIR}/Student")
+target_include_directories(Teacher PUBLIC "${PROJECT_SOURCE_DIR}/Semaphore")
